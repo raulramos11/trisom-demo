@@ -83,6 +83,12 @@ img,svg{display:block}
     repeating-linear-gradient(90deg,rgba(224,164,74,.045) 0 1px,transparent 1px 46px);
   mask-image:linear-gradient(180deg,transparent,#000 20%,#000 70%,transparent);
 }
+.hero-has-img{
+  background:
+    linear-gradient(180deg,rgba(18,16,22,.78),rgba(18,16,22,.92)),
+    radial-gradient(120% 90% at 85% -10%,rgba(224,164,74,.22),transparent 55%),
+    url('img/loja.jpg') center/cover no-repeat;
+}
 .hero-content{position:relative;max-width:720px}
 .eyebrow{
   display:inline-block;font-size:.74rem;letter-spacing:.24em;text-transform:uppercase;
@@ -129,22 +135,15 @@ img,svg{display:block}
 }
 .card:hover{transform:translateY(-4px);border-color:var(--gold)}
 .product-media{
-  height:160px;position:relative;
-  background:
-    radial-gradient(circle at 70% 20%,rgba(224,164,74,.25),transparent 60%),
-    linear-gradient(135deg,#2a2333,#1d1826);
+  height:190px;position:relative;overflow:hidden;
+  background:linear-gradient(135deg,#2a2333,#1d1826);
   display:grid;place-items:center;
 }
-.product-media::after{
-  content:"";width:66px;height:66px;background:var(--gold-soft);opacity:.9;
-  -webkit-mask:center/contain no-repeat;mask:center/contain no-repeat;
+.product-media img{
+  width:100%;height:100%;object-fit:cover;
+  transition:transform .4s ease;
 }
-.product-media[data-icon="guitarra"]::after{-webkit-mask-image:url('icons/guitar.svg');mask-image:url('icons/guitar.svg')}
-.product-media[data-icon="teclado"]::after{-webkit-mask-image:url('icons/piano.svg');mask-image:url('icons/piano.svg')}
-.product-media[data-icon="bateria"]::after{-webkit-mask-image:url('icons/drum.svg');mask-image:url('icons/drum.svg')}
-.product-media[data-icon="sopro"]::after{-webkit-mask-image:url('icons/sax.svg');mask-image:url('icons/sax.svg')}
-.product-media[data-icon="amp"]::after{-webkit-mask-image:url('icons/amp.svg');mask-image:url('icons/amp.svg')}
-.product-media[data-icon="acessorios"]::after{-webkit-mask-image:url('icons/accessory.svg');mask-image:url('icons/accessory.svg')}
+.card:hover .product-media img{transform:scale(1.05)}
 
 .product-body{padding:1.3rem}
 .tag{
@@ -193,6 +192,9 @@ img,svg{display:block}
   padding:1.7rem;box-shadow:var(--shadow);
 }
 .about-facts h3{color:var(--gold-soft);font-size:1.2rem;margin-bottom:1rem}
+.about-photo{margin:0 0 1.3rem;border-radius:12px;overflow:hidden;border:1px solid var(--line)}
+.about-photo img{width:100%;height:170px;object-fit:cover;display:block}
+.about-photo figcaption{font-size:.7rem;color:var(--muted);text-align:right;padding:.3rem .5rem;background:rgba(0,0,0,.25)}
 .about-facts ul{list-style:none;display:flex;flex-direction:column;gap:.9rem}
 .about-facts li{color:var(--ink-soft);font-size:.92rem;border-bottom:1px solid var(--line);padding-bottom:.8rem}
 .about-facts li:last-child{border-bottom:0;padding-bottom:0}
@@ -218,6 +220,7 @@ img,svg{display:block}
 .ci-ico[data-icon="phone"]::after{-webkit-mask-image:url('icons/phone.svg');mask-image:url('icons/phone.svg')}
 .ci-ico[data-icon="clock"]::after{-webkit-mask-image:url('icons/clock.svg');mask-image:url('icons/clock.svg')}
 .ci-ico[data-icon="fb"]::after{-webkit-mask-image:url('icons/facebook.svg');mask-image:url('icons/facebook.svg')}
+.ci-ico[data-icon="wa"]::after{-webkit-mask-image:url('icons/whatsapp.svg');mask-image:url('icons/whatsapp.svg')}
 .contact-actions{display:flex;gap:.8rem;flex-wrap:wrap}
 .contact-map{border-radius:var(--radius);overflow:hidden;border:1px solid var(--line);min-height:360px;box-shadow:var(--shadow)}
 .contact-map iframe{width:100%;height:100%;min-height:360px;border:0;filter:grayscale(.2) contrast(1.05)}
@@ -234,6 +237,9 @@ img,svg{display:block}
 .site-footer nav a:hover{color:var(--gold-soft)}
 .footer-bottom{border-top:1px solid var(--line);padding:1.3rem 0;margin-top:0}
 .footer-bottom p{font-size:.8rem}
+.footer-bottom .credits{font-size:.72rem;color:var(--muted);margin-top:.6rem;line-height:1.5}
+.footer-bottom .credits a{color:var(--gold-deep)}
+.footer-bottom .credits a:hover{color:var(--gold-soft)}
 
 /* Responsivo */
 @media (max-width:860px){
